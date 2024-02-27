@@ -1,0 +1,19 @@
+version: '3.9'
+
+name: pizza_dev_db
+
+volumes:
+  data:
+
+services:
+  postgres:
+    restart: always
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=db#12345
+      - POSTGRES_DB=pizza_dev
+    ports:
+      - 49161:5432
+    volumes:
+      - data:/var/lib/postgresql
